@@ -83,6 +83,15 @@
         }
     </style>
     <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
         function updateActivities() {
             var selectedTime = document.getElementById('time-select').value;
             var activities = document.getElementsByClassName('activity');
@@ -99,6 +108,14 @@
                 document.getElementById('activity-2').style.display = 'none';
                 document.getElementById('activity-4').style.display = 'none';
             }
+        }
+
+        function navigateTo(id) {
+            var element = document.getElementById(id);
+            window.scrollTo({
+                top: element.offsetTop,
+                behavior: 'smooth'
+            });
         }
     </script>
 </head>
