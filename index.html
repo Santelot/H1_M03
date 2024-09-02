@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook H1 M03</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-5').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-5').style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body onload="updateActivities()">
+
+<div class="header">
+    <h1>Playbook H1 M03</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+    <!-- Actividad 1 (4 pasos) -->
+    <div id="activity-1" class="activity">
+        <div class="banner" onclick="toggleContent('saludo')">
+            <div class="title">
+                <span>📚 Actividad 1: Saludo y Ritual Gnius Club (4 pasos)</span>
+                <span>⏰ Tiempo: 2.5 minutos</span>
+            </div>
+            <div class="subtitle">Dar la bienvenida y preparar el ambiente</div>
+        </div>
+        <div id="saludo" class="content">
+            <div class="section">
+                <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 2 "Gnius Club"</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">Hola, Genios. Hoy vamos a viajar en el tiempo para entender cómo llegamos a la inteligencia artificial que conocemos hoy. Exploraremos la historia de la IA y veremos cómo ha evolucionado a lo largo del tiempo.</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 2 (1.0 minutos): Proyectar Diapositiva 3 "¿Cómo están hoy?"</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">Antes de empezar nuestro viaje por la historia de la IA, quiero saber cómo se sienten hoy. Si están listos para aprender algo nuevo y emocionante, levanten la mano derecha. Si sienten que necesitan un poco de energía, levanten la izquierda.</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 4 "Gracias por Asistir"</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">Como siempre, vamos a juntar nuestras manos en agradecimiento por la oportunidad de aprender algo nuevo hoy. ¡Gracias por asistir, Genios!</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 4 (0.5 minutos): Proyectar Diapositiva 5 "Objetivos de la Misión"</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">Hoy tenemos dos objetivos clave: 1. Aprender sobre las 5 etapas de la automatización y su evolución hasta la inteligencia artificial. 2. Identificar en qué etapa se encuentran diferentes sistemas o IA de la actualidad.</div>
+            </div>
+        </div>
+    </div>
+<!-- Actividad 2 (3 pasos) -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('sophia')">
+        <div class="title">
+            <span>📚 Actividad 2: Innovación del día (3 pasos)</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Introducción a un ejemplo avanzado de inteligencia artificial</div>
+    </div>
+    <div id="sophia" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 6 "Presentación de Sophia"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, antes de sumergirnos en la historia de la inteligencia artificial, vamos a conocer un ejemplo sorprendente de lo que la IA puede hacer hoy en día. Les presento a Sophia, el robot humanoide más avanzado del mundo.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (2 minutos): Proyectar Diapositiva 7 "Video de Sophia"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Sophia fue desarrollada por Hanson Robotics y es capaz de mantener conversaciones, reconocer rostros, y mostrar expresiones faciales. Vamos a ver un breve video para entender mejor cómo funciona.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (2 minutos): Proyectar Diapositiva 8 "Reflexión sobre Sophia"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¿Qué les pareció? Sophia es un gran ejemplo de cómo la IA ha avanzado hasta el punto de interactuar de manera casi humana. Este tipo de tecnología nos muestra lo lejos que hemos llegado en la automatización. Ahora, vamos a relacionar esto con las etapas de la automatización que veremos hoy.</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 3 (9 pasos) -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('automatizacion')">
+        <div class="title">
+            <span>📚 Actividad 3: Brain Gym (9 pasos)</span>
+            <span>⏰ Tiempo: 15 minutos</span>
+        </div>
+        <div class="subtitle">Explorar la evolución de la automatización hasta la inteligencia artificial</div>
+    </div>
+    <div id="automatizacion" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (2 minutos): Proyectar Diapositiva 9 "Introducción a las etapas de la automatización"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, la automatización ha sido una fuerza impulsora detrás de muchas innovaciones tecnológicas. Desde la Revolución Industrial hasta la era de la inteligencia artificial, la automatización ha pasado por varias etapas. Hoy vamos a explorar las cinco etapas principales que nos han llevado al punto en el que estamos ahora.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (2 minutos): Proyectar Diapositiva 10 "Primera etapa: Mecanización"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">La primera etapa de la automatización comenzó con la mecanización. Durante la Revolución Industrial, las máquinas empezaron a reemplazar el trabajo manual en fábricas. Estas máquinas eran simples y requerían de supervisión humana para operar. Piensen en la primera máquina de vapor o en el telar mecánico. Aunque eran avances enormes para su tiempo, todavía dependían en gran medida del control humano.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (2 minutos): Proyectar Diapositiva 11 "Segunda etapa: Electricidad"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">La segunda etapa trajo el uso de la electricidad para mejorar el control de las máquinas. Ahora, en lugar de depender solo de la mecánica, las máquinas podían usar sistemas eléctricos para controlar procesos automáticamente. Esto redujo la necesidad de intervención humana directa y aumentó la precisión en la producción. Un buen ejemplo de esto son las líneas de ensamblaje automatizadas en las fábricas de automóviles.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (2 minutos): Proyectar Diapositiva 12 "Tercera etapa: Computadoras"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">La tercera etapa fue un salto significativo: la introducción de las computadoras en la automatización. Ahora, las máquinas podían ser programadas para realizar tareas complejas sin intervención humana. Esto permitió la creación de sistemas de control numérico y, eventualmente, de robots industriales. Las computadoras no solo realizaban tareas repetitivas, sino que también podían tomar decisiones basadas en datos.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (2 minutos): Proyectar Diapositiva 13 "Cuarta etapa: Conexión de sistemas"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">La cuarta etapa fue cuando las máquinas y computadoras empezaron a conectarse entre sí a través de redes. Esto llevó a la creación de sistemas integrados, donde múltiples máquinas y procesos podían ser controlados de manera centralizada. Piensen en cómo los sistemas de control de tráfico aéreo o los sistemas de gestión de fábricas trabajan hoy en día. Todo está interconectado y optimizado para funcionar de la manera más eficiente posible.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (2 minutos): Proyectar Diapositiva 14 "Quinta etapa: Inteligencia artificial"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Finalmente, llegamos a la quinta etapa: la inteligencia artificial. En esta etapa, las máquinas no solo ejecutan tareas o siguen programas, sino que pueden aprender y adaptarse. La IA es capaz de analizar grandes cantidades de datos, reconocer patrones y tomar decisiones basadas en esos datos. Un ejemplo claro de esto son los asistentes virtuales, como Siri o Alexa, que aprenden de nuestras interacciones y mejoran con el tiempo.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 7 (2 minutos): Proyectar Diapositiva 15 "Resumen de las etapas de la automatización"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Como pueden ver, cada etapa de la automatización nos ha llevado un paso más cerca de la tecnología avanzada que tenemos hoy. Desde las simples máquinas mecánicas hasta la inteligencia artificial, la automatización ha transformado nuestra manera de vivir y trabajar.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 8 (2 minutos): Proyectar Diapositiva 16 "Reflexión sobre la automatización"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Todo lo que hemos visto hoy nos ayuda a entender mejor cómo las tecnologías actuales, como los sistemas de IA, han evolucionado. Es fascinante pensar en cómo cada etapa ha sido un peldaño hacia la próxima, y nos hace preguntarnos: ¿cuál será la próxima gran evolución en la automatización?</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 9 (2 minutos): Proyectar Diapositiva 17 "Objetivos alcanzados"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Hoy hemos cumplido con nuestro objetivo de aprender sobre las cinco etapas de la automatización. Este conocimiento nos permite entender mejor la tecnología que usamos todos los días y cómo ha llegado a ser lo que es. ¡Gran trabajo, Genios!</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 4 (4 pasos) -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('caminata')">
+        <div class="title">
+            <span>📚 Actividad 4: State Change (4 pasos)</span>
+            <span>⏰ Tiempo: 4 minutos</span>
+        </div>
+        <div class="subtitle">Recargar energías y activar la circulación</div>
+    </div>
+    <div id="caminata" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 18 "Preparación para la caminata"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, para recargar energías, vamos a hacer una breve caminata por el aula. Esto no solo activa la circulación, sino que también nos ayuda a despejar la mente y estar listos para seguir aprendiendo.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 19 "Comenzar a caminar"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Todos de pie, por favor. Vamos a caminar rápidamente por el aula durante un minuto. Quiero que se muevan por el espacio, respiren profundamente y sientan cómo la energía fluye por su cuerpo.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 20 "Caminata rápida"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora, comencemos. Caminen rápidamente por el aula, tomen el tiempo para moverse y respirar. Recuerden, esto es para activar la circulación y liberar un poco de energía antes de continuar.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Proyectar Diapositiva 21 "Finalizar la caminata"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Muy bien, Genios. Este breve ejercicio no solo nos activa físicamente, sino que también nos ayuda a mantenernos concentrados y enfocados en lo que viene. Ahora que estamos energizados, estamos listos para seguir adelante.</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 5 (3 pasos) -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('trabajo_en_parejas')">
+        <div class="title">
+            <span>📚 Actividad 5: Team Gnius (3 pasos)</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Formación de parejas para la siguiente actividad</div>
+    </div>
+    <div id="trabajo_en_parejas" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (2 minutos): Proyectar Diapositiva 22 "Elegir compañero"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, para esta misión vamos a trabajar en parejas, pero esta vez quiero que elijan a un compañero diferente al de la misión anterior. Este es un gran momento para aprender de alguien nuevo y compartir ideas frescas.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (2 minutos): Proyectar Diapositiva 23 "Buscar a un nuevo compañero"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Tómense un minuto para encontrar a su nuevo compañero. Recuerden que la diversidad de ideas en un equipo puede llevar a soluciones más creativas e innovadoras. Una vez que tengan su pareja, vayan a recoger una Magic Tablet por equipo.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 24 "Listos para trabajar"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¿Ya están todos en pareja y tienen su Magic Tablet? Perfecto. Vamos a trabajar juntos en la siguiente actividad, aprovechando las ideas y la colaboración de cada uno.</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 6 (6 pasos) -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('nivel_automatizacion')">
+        <div class="title">
+            <span>📚 Actividad 6: Challenge (6 pasos)</span>
+            <span>⏰ Tiempo: 12 minutos</span>
+        </div>
+        <div class="subtitle">Analizar herramientas de IA en el contexto de la automatización</div>
+    </div>
+    <div id="nivel_automatizacion" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (7 minutos): Proyectar Diapositiva 25 "Investigando el nivel de automatización"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, en este desafío vamos a investigar el nivel de automatización de tres herramientas de IA que usamos en el día a día: ChatGPT, Google Assistant, y Spotify. Van a tener 7 minutos para navegar por estas aplicaciones y determinar en qué etapa de automatización se encuentran. Anoten sus observaciones en sus Magic Tablets.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (N/A): Proyectar Diapositiva 26 "N/A"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">N/A</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (3 minutos): Proyectar Diapositiva 27 "Comparar respuestas"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora, intercambien sus Magic Tablets con la pareja más cercana y tómense 3 minutos para comparar sus respuestas. Discutan las diferencias y similitudes que encuentren en sus análisis.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (N/A): Proyectar Diapositiva 28 "N/A"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">N/A</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (2 minutos): Proyectar Diapositiva 29 "Conclusión y Mon-e"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Excelente trabajo, Genios. Hoy han aplicado lo que aprendimos sobre las etapas de la automatización y lo han llevado a la práctica. ¡Felicidades! Todos han hecho un gran esfuerzo y se merecen Mon-e por su dedicación.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (2 minutos): Proyectar Diapositiva 30 "Objetivos alcanzados"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Antes de finalizar, revisemos los objetivos que alcanzamos hoy: 1. Aprendimos sobre las cinco etapas de la automatización. 2. Investigamos y analizamos el nivel de automatización de herramientas de IA actuales. ¡Gran trabajo, Genios!</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 7 (3 pasos) -->
+<div id="activity-7" class="activity">
+    <div class="banner" onclick="toggleContent('trivia')">
+        <div class="title">
+            <span>📚 Actividad 7: Easter Egg (3 pasos)</span>
+            <span>⏰ Tiempo: 3 minutos</span>
+        </div>
+        <div class="subtitle">Evaluar la atención con una pregunta sorpresa</div>
+    </div>
+    <div id="trivia" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 31 "Pregunta sorpresa"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, es hora de ver quién ha estado prestando atención. La siguiente diapositiva tiene una pregunta sobre algo que discutimos hoy. Voy a premiar con Mon-e a las tres primeras personas que me den la respuesta correcta. Recuerden la dinámica: en cuanto pase a la siguiente diapositiva, lean la pregunta y si saben la respuesta, levanten la mano. No digan la respuesta en voz alta, solo levanten la mano. Yo seleccionaré a 3 de ustedes. ¿Listos?</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 32 "Levantar la mano"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Uno, dos, tres. Levanten la mano si saben la respuesta. ¡Muy bien! Vamos a escuchar lo que tienen que decir.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 33 "Revelar la respuesta correcta"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Uno, ven y dime la respuesta al oído. Ahora tú, dos. Y por último, el tres. La respuesta correcta es "En la primera etapa: Automatización Mecánica". ¡Muy bien, a los ganadores les toca Mon-e!</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 8 (1 paso) -->
+<div id="activity-8" class="activity">
+    <div class="banner" onclick="toggleContent('honor_dojo')">
+        <div class="title">
+            <span>📚 Actividad 8: Honor de Dojo (1 paso)</span>
+            <span>⏰ Tiempo: 2 minutos</span>
+        </div>
+        <div class="subtitle">Recoger y ordenar el salón</div>
+    </div>
+    <div id="honor_dojo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (2 minutos): Proyectar Diapositiva 34 "Recoger Magic Tablets"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Cada equipo pase al frente y denme sus Magic Tablets.</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateActivities() {
+        var selectedTime = document.getElementById('time-select').value;
+        var activities = document.getElementsByClassName('activity');
+
+        document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+        for (var i = 0; i < activities.length; i++) {
+            activities[i].style.display = 'block';
+        }
+
+        if (selectedTime === '45') {
+            document.getElementById('activity-4').style.display = 'none';
+        } else if (selectedTime === '40') {
+            document.getElementById('activity-2').style.display = 'none';
+            document.getElementById('activity-4').style.display = 'none';
+        }
+    }
+</script>
+
+</div> <!-- Cierre del container -->
+
+<!-- Scripts adicionales si es necesario -->
+<script>
+    // Agregar scripts adicionales aquí si es necesario
+</script>
+
+</body>
+</html>
